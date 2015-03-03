@@ -1,0 +1,26 @@
+{
+  "name": "gamekit-screen-cli",
+  "version": "1.0.0",
+  "description": "A CLI (ansi) implementation of the http://npm.im/gamekit screen interface",
+  "main": "screen.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "node test/"
+  },
+  "keywords": [
+    "gamekit",
+    "ansi",
+    "cli"
+  ],
+  "author": "Bryce B. Baril",
+  "license": "MIT",
+  "dependencies": {
+    "ansi": "~0.3.0",
+    "xtend": "~4.0.0"
+  },
+  "devDependencies": {
+    "tape": "~3.5.0"
+  }
+}
