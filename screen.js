@@ -26,10 +26,7 @@ function Screen(options) {
   // TODO color bins (bg/fg)
 
   var self = this
-  process.once("SIGTERM", function sigterm() {
-    self.cleanup()
-  })
-  process.once("SIGINT", function sigint() {
+  process.once("exit", function onExit() {
     self.cleanup()
   })
 }
