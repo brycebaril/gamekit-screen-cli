@@ -4,22 +4,24 @@ var ansi = require("ansi")
 var cursor = ansi(process.stdout)
 var xtend = require("xtend")
 
-function Screen(width, height, options) {
+function Screen(options) {
   if (!(this instanceof Screen)) {
-    return new Screen(width, height, options)
+    return new Screen(options)
   }
-  if (width >>> 0 != width) {
+  options = xtend({border: true}, options)
+
+  if (options.width >>> 0 != options.width) {
     throw new TypeError("width must be a positive integer")
   }
-  if (height >>> 0 != height) {
+  if (options.height >>> 0 != options.height) {
     throw new TypeError("height must be a positive integer")
   }
 
-  this.width = width
-  this.height = height
-  this.options = xtend({border: true}, options)
+  this.width = options.width
+  this.height = options.height
+  this.border = options.border
   this.needsPaint = true
-  this.content = emptySpace(width * height, " ")
+  this.content = emptySpace(this.width * this.height, " ")
   // TODO color bins (bg/fg)
 }
 
@@ -37,7 +39,7 @@ Screen.prototype.paint = function paint(force) {
   var horizontalBorder = ""
   var verticalBorder = ""
 
-  if (this.options.border) {
+  if (this.border) {
     var horizontalBorder = emptySpace(this.width, "─")
     var verticalBorder = "│"
 
@@ -58,7 +60,7 @@ Screen.prototype.paint = function paint(force) {
     cursor.write("\n")
   }
 
-  if (this.options.border) {
+  if (this.border) {
     cursor.write("└")
     cursor.write(horizontalBorder)
     cursor.write("┘")

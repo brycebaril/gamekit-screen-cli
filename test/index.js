@@ -11,26 +11,26 @@ test("errors", function (t) {
     Screen("cat", 20)
   })
   t.throws(function () {
-    var s = Screen(21, 8)
+    var s = Screen({width: 21, height: 8})
     s.output(21, 8, "NOPE")
   })
   t.throws(function () {
-    var s = new Screen(21, 8)
+    var s = new Screen({width: 21, height: 8})
     s.output("cat", "dog", "meowf")
   })
   t.throws(function () {
-    var s = new Scren(21, 8)
+    var s = new Scren({width: 21, height: 8})
     s.getChar("a", "b")
   })
   t.throws(function () {
-    var s = new Screen(21, 8)
+    var s = new Screen({width: 21, height: 8})
     s.getChar(10, "B")
   })
   t.end()
 })
 
 test("simple", function (t) {
-  var s = new Screen(21, 8)
+  var s = new Screen({width: 21, height: 8})
   t.ok(s instanceof Screen)
   t.equals(s.getChar(0, 0), " ")
   s.output(0, 0, "A")

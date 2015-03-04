@@ -10,7 +10,7 @@ It lets you create a grid ascii area on the terminal and read/write characters i
 ```javascript
 var Screen = require("gamekit-screen-cli")
 
-var screen = new Screen(21, 8)
+var screen = new Screen({width: 21, height: 8})
 
 screen.paint()
 screen.output(1,1,"abcd")
@@ -23,10 +23,17 @@ screen.paint()
 API
 ===
 
-`var screen = new Screen(width, height[, options])`
+`var screen = new Screen(options)`
 ---
 
-Create a new Screen instance. `options` accepts a `border` boolean (default: true)
+Create a new Screen instance.
+
+`options` are:
+  * width (required): screen width in columns
+  * height (required): screen height in rows
+  * border (default `true`): whether or not to draw a border around the screen
+
+`options` accepts a `border` boolean (default: true)
 
 `screen.paint([force])`
 ---
