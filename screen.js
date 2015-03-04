@@ -22,7 +22,21 @@ function Screen(options) {
   this.border = options.border
   this.needsPaint = true
   this.content = emptySpace(this.width * this.height, " ")
+  cursor.hide()
   // TODO color bins (bg/fg)
+
+  var self = this
+  process.once("SIGTERM", function sigterm() {
+    self.cleanup()
+  })
+  process.once("SIGINT", function sigint() {
+    self.cleanup()
+  })
+}
+
+Screen.prototype.cleanup = function cleanup() {
+  cursor.reset()
+  cursor.show()
 }
 
 Screen.prototype._clear = function _clear() {

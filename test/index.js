@@ -40,5 +40,6 @@ test("simple", function (t) {
   t.equals(s.getChar(2, 0), "2")
   s.output(7, 20, "BYE")
   s.paint()
+  s.cleanup()
   t.end()
 })

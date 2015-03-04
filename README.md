@@ -56,6 +56,13 @@ If the text would overflow the current row, it will overflow into the next row.
 
 Fetch the character at this `row` and `column`, returns the character.
 
+`screen.cleanup()`
+---
+
+Reset the pen and re-enable the cursor so that your terminal tries to go back to normal.
+
+It will automatically set up SIGINT and SIGTERM handlers to call `cleanup` but you should still call cleanup yourself on exit.
+
 LICENSE
 =======
 
