@@ -20,12 +20,14 @@ function Screen(options) {
   this.width = options.width
   this.height = options.height
   this.border = options.border
-  this.needsPaint = true
-  this.content = emptySpace(this.width * this.height, " ")
+
   cursor.hide()
+  this.clear()
+
   // TODO color bins (bg/fg)
 
   var self = this
+  // This isn't all that helpful... signal handlers don't emit the exit event
   process.once("exit", function onExit() {
     self.cleanup()
   })
@@ -38,6 +40,11 @@ Screen.prototype.cleanup = function cleanup() {
 
 Screen.prototype._clear = function _clear() {
   process.stdout.write("\u001B[2J\u001B[0;0f")
+}
+
+Screen.prototype.clear = function clear() {
+  this.content = emptySpace(this.width * this.height, " ")
+  this.needsPaint = true
 }
 
 Screen.prototype.paint = function paint(force) {

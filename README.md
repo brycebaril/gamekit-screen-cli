@@ -56,6 +56,11 @@ If the text would overflow the current row, it will overflow into the next row.
 
 Fetch the character at this `row` and `column`, returns the character.
 
+`screen.clear()`
+---
+
+Reset the contents to empty space, replaces all cells with a " " character.
+
 `screen.cleanup()`
 ---
 
