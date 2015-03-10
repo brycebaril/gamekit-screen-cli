@@ -1,6 +1,6 @@
 {
   "name": "gamekit-screen-cli",
-  "version": "2.1.0",
+  "version": "2.2.0",
   "description": "A CLI (ansi) implementation of the http://npm.im/gamekit screen interface",
   "main": "screen.js",
   "directories": {
