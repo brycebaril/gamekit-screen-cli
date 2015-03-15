@@ -116,9 +116,16 @@ Screen.prototype.output = function output(row, column, text) {
     throw new RangeError("column must be <= window width")
   }
 
-  if (text == null || text.length == 0) {
+  if (text == null) {
     return
   }
+
+  text = text.toString()
+
+  if (text.length === 0) {
+    return
+  }
+
   // scrub newlines
   text = text.replace(/\s/g, " ")
 
