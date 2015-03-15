@@ -115,5 +115,6 @@ test("capture", function (t) {
   t.ok(s.getChar(8, 9, "9"))
   t.ok(s.getChar(9, 9, "J"))
   t.ok(s.getChar(9, 0, "0"))
+  s.cleanup()
   t.end()
 })
