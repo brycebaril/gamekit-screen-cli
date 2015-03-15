@@ -61,6 +61,11 @@ Fetch the character at this `row` and `column`, returns the character.
 
 Reset the contents to empty space, replaces all cells with a " " character.
 
+`screen.capture()`
+---
+
+Fetch the screen contents. This can then be used with `screen.output(0, 0, contents)` to resume a previous screen.
+
 `screen.cleanup()`
 ---
 

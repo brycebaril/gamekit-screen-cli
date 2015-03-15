@@ -22,7 +22,7 @@ function Screen(options) {
   this.border = options.border
 
   cursor.hide()
-  this.clear()
+  this.clear() // sets this.content
 
   // TODO color bins (bg/fg)
 
@@ -31,6 +31,10 @@ function Screen(options) {
   process.once("exit", function onExit() {
     self.cleanup()
   })
+}
+
+Screen.prototype.capture = function capture() {
+  return this.content
 }
 
 Screen.prototype.cleanup = function cleanup() {
